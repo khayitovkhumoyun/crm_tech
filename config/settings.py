@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-y78mj3+%4kliu@%(u10did8hfg^52+tuy91j14-gw%rl&v=nbv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','64.226.78.63']
+ALLOWED_HOSTS = ['*','134.209.238.241']
 
 # CSRF_TRUSTED_ORIGINS = ['64.226.78.63']
 
@@ -202,4 +202,4 @@ AUTH_USER_MODEL = 'configApp.User'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATIC_ROOT = os.path.join(BASE_DIR, '/var/www/static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
