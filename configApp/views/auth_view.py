@@ -19,8 +19,8 @@ import random
 
 # auth dan utgan user datelarini USER modelga saqlob quyadigan method
 class RegisterUserApi(APIView):
-    permission_classes = [IsAuthenticated]
-    authentication_classes = [TokenAuthentication]
+    # permission_classes = [IsAuthenticated]
+    # authentication_classes = [TokenAuthentication]
 
     @swagger_auto_schema(request_body=UserSerializer)
 
@@ -44,7 +44,7 @@ class RegisterUserApi(APIView):
 
 # User passworni uzgartiradigan method
 class ChangePasswordView(APIView):
-    permission_classes = (permissions.IsAuthenticated,)
+    # permission_classes = (permissions.IsAuthenticated,)
 
     def patch(self, request, *args, **kwargs):
         serializer = ChangePasswordSerializer(instance=self.request.user, data=request.data)

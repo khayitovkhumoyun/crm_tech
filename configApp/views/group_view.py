@@ -72,7 +72,7 @@ class RoomTableApi(APIView):
 class GroupStudentsApi(APIView):
     def get(self, request, pk):
         students = Student.objects.filter(group__in=[pk])
-        serializer_student = StudentSerializerID(students, many=True)
+        serializer_student = StudentSerializer(students, many=True)
         attendance = Attendance.objects.filter(group=pk).order_by('-id')
         serializer_attendance = AttendanceSerializer(attendance, many=True)
         data = {
