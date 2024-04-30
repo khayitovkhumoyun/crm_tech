@@ -6,7 +6,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
 
 from configApp.models import Course
-from configApp.serializers.teach_serializer import CourseSerializer
+from configApp.serializers.teach_serializer import CourseSerializer, TeacherSerializer
 
 from rest_framework.views import APIView
 from ..serializers import *
@@ -69,9 +69,17 @@ class StudentApiViewId(APIView):
         except Exception as e:
             return Response(data={'error': e})
 
+    def delete(self, request, pk):
+        try:
+            student = Student.objects.get(pk=pk)
+            student.delete()
+            return Response(data={"message": f"{pk} delete student"})
+        except Exception as e:
+            return Response(data={'error': e})
+
 
 class TeacherViewApi(ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     queryset = Teacher.objects.all().order_by("-id")
-    serializer_class = TableSerializer
+    serializer_class = TeacherSerializer
