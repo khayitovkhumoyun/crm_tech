@@ -1,4 +1,5 @@
 from rest_framework.pagination import PageNumberPagination
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
@@ -59,6 +60,8 @@ class GroupApi(APIView):
 
 # room id berilganda usha xonadadi bir kunlik qaysi guruhlarga dars bulsa shularni qaytaradi
 class RoomTableApi(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, pk):
         table_id = []
         table = Table.objects.filter(room=pk).order_by('-id')
@@ -70,6 +73,8 @@ class RoomTableApi(APIView):
 
 
 class GroupStudentsApi(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request, pk):
         students = Student.objects.filter(group__in=[pk])
         serializer_student = StudentSerializer(students, many=True)

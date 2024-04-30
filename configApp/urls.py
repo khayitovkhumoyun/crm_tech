@@ -6,7 +6,7 @@ router = DefaultRouter()
 router.register(r'course', CourseApiView)
 router.register(r'room', RoomAPIView)
 router.register(r'day', DayAPIView)
-router.register(r'course', CourseApiView)
+
 router.register(r'group', GroupApiView)
 # dard javvali turi
 router.register(r'tableType', TableTypeApi)
@@ -28,4 +28,5 @@ urlpatterns = [
     # path('userInfo/', UserInfo.as_view()),
     path('refresh_password/', ChangePasswordView.as_view()),
     path('studentApi/', StudentViewApi.as_view()),
+    path('studentApiId/', StudentApiViewId.as_view()),
 ]

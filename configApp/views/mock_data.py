@@ -2,6 +2,7 @@ import datetime
 
 from django.db.models import Count
 from django.db.models.functions import TruncMonth
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from ..models import *
 from rest_framework.response import Response
@@ -12,6 +13,8 @@ from ..serializers.mock_serializers import *
 
 
 class StudentMonthMock(APIView):
+    permission_classes = [IsAuthenticated]
+
     @swagger_auto_schema(request_body=StudentMock)
     def post(self, request):
 
@@ -32,6 +35,8 @@ class StudentMonthMock(APIView):
 
 
 class DateToDateApi(APIView):
+    permission_classes = [IsAuthenticated]
+
     @swagger_auto_schema(request_body=DateToDateStudentMock)
     def post(self, request):
         date1 = request.data['date1']
@@ -47,6 +52,8 @@ class DateToDateApi(APIView):
 
 
 class CourseCountApi(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         course = Course.objects.all().Count().order_by('-id')
         return Response(data={"count": course})

@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -16,7 +17,7 @@ SECRET_KEY = 'django-insecure-y78mj3+%4kliu@%(u10did8hfg^52+tuy91j14-gw%rl&v=nbv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','134.209.238.241']
+ALLOWED_HOSTS = ['*', '134.209.238.241']
 CSRF_TRUSTED_ORIGINS = ['http://134.209.238.241']
 
 # CSRF_TRUSTED_ORIGINS = ['64.226.78.63']
@@ -26,7 +27,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 CSRF_COOKIE_SECURE = False
 SESSION_COOKIE_SECURE = False
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-
 
 # Application definition
 
@@ -48,14 +48,14 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
 
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny',
+        'rest_framework.permissions.IsAdminUser',
     ),
 }
 
@@ -97,7 +97,6 @@ SIMPLE_JWT = {
     "TOKEN_BLACKLIST_SERIALIZER": "rest_framework_simplejwt.serializers.TokenBlacklistSerializer",
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
-
 
 }
 SWAGGER_SETTINGS = {
