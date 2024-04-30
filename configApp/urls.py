@@ -28,5 +28,5 @@ urlpatterns = [
     # path('userInfo/', UserInfo.as_view()),
     path('refresh_password/', ChangePasswordView.as_view()),
     path('studentApi/', StudentViewApi.as_view()),
-    path('studentApiId/', StudentApiViewId.as_view()),
+    path('studentApiId/<int:pk>', StudentApiViewId.as_view()),
 ]
