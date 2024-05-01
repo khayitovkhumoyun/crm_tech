@@ -20,8 +20,8 @@ import random
 # auth dan utgan user datelarini USER modelga saqlob quyadigan method
 class RegisterUserApi(APIView):
     permission_classes = [IsAuthenticated]
-    @swagger_auto_schema(request_body=UserSerializer)
 
+    @swagger_auto_schema(request_body=UserSerializer)
     def post(self, request):
         print(self.request.user)
         serializer = UserSerializer(data=request.data)
@@ -38,6 +38,36 @@ class RegisterUserApi(APIView):
         users = User.objects.all().order_by('-id')
         serializer = UserSerializer(users, many=True)
         return Response(data=serializer.data)
+
+
+class RegisterUserIDApi(APIView):
+    def get(self, request, pk):
+        try:
+            worker = User.objects.get(pk=pk)
+            serializer = UserSerializer(worker)
+            return Response(data=serializer.data)
+        except Exception as e:
+            return Response(data={'error': e})
+
+    def put(self, request, pk):
+        try:
+            teacher = User.objects.get(id=pk)
+            serializer = UserSerializer(teacher, data=request.data)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save()
+                return Response(data=serializer.data)
+        except Exception as e:
+            return Response(data={'error': e})
+
+    def patch(self, request, pk):
+        try:
+            teacher = User.objects.get(pk=pk)
+            serializer = UserSerializer(teacher, data=request.data, partial=True)
+            if serializer.is_valid(raise_exception=True):
+                serializer.save()
+                return Response(data=serializer.data)
+        except Exception as e:
+            return Response(data={'error': e})
 
 
 # User passworni uzgartiradigan method
