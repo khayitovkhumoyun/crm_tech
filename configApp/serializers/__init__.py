@@ -4,3 +4,4 @@ from .student_serializers import *
 from .mock_serializers import *
 from .attendance_serializers import *
 from .staff_serializer import *
+from .about_serializer import *
