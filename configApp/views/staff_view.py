@@ -19,7 +19,7 @@ class RegionViewApi(ModelViewSet):
 class GetRegionApi(APIView):
     def get(self, request):
         region = Region.objects.all().order_by('-id')
-        serializer = RoomSerializer(region)
+        serializer = RoomSerializer(region,many=True)
         return Response(data=serializer.data)
 
 
@@ -31,10 +31,10 @@ class OrganizationViewApi(ModelViewSet):
     pagination_class = PageNumberPagination
 
 
-class GetRegion(APIView):
+class GetOrganization(APIView):
     def get(self, request):
         org = Organization.objects.all().order_by('-id')
-        serializer = OrganizationSerializer(org)
+        serializer = OrganizationSerializer(org,many=True)
         return Response(data=serializer.data)
 
 

@@ -30,7 +30,7 @@ urlpatterns = [
     path('studentApi/', StudentViewApi.as_view()),
     path('courseGet/', GetCourseAPI.as_view()),
     path('regionGet/', GetRegionApi.as_view()),
-    path('organizationGet/', GetRegion.as_view()),
+    path('organizationGet/', GetOrganization.as_view()),
     path('kadr/', ManagerApiView.as_view()),
     path('kadr/<int:pk>/', ManagerApiIdView.as_view()),
     path('user/<int:pk>/', RegisterUserIDApi.as_view()),
