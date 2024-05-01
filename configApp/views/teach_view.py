@@ -23,6 +23,13 @@ class CourseApiView(ModelViewSet):
     pagination_class = PageNumberPagination
 
 
+class GetCourseAPI(APIView):
+    def get(self, request):
+        course = Course.objects.all().order_by('-id')
+        serializer = CourseSerializer(course)
+        return Response(data=serializer.data)
+
+
 class StudentViewApi(APIView):
     permission_classes = [IsAuthenticated]
 

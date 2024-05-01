@@ -16,12 +16,26 @@ class RegionViewApi(ModelViewSet):
     pagination_class = PageNumberPagination
 
 
+class GetRegionApi(APIView):
+    def get(self, request):
+        region = Region.objects.all().order_by('-id')
+        serializer = RoomSerializer(region)
+        return Response(data=serializer.data)
+
+
 class OrganizationViewApi(ModelViewSet):
     permission_classes = [IsAuthenticated]
 
     serializer_class = OrganizationSerializer
     queryset = Organization.objects.all().order_by('-id')
     pagination_class = PageNumberPagination
+
+
+class GetRegion(APIView):
+    def get(self, request):
+        org = Organization.objects.all().order_by('-id')
+        serializer = OrganizationSerializer(org)
+        return Response(data=serializer.data)
 
 
 class ManagerApiView(APIView):
