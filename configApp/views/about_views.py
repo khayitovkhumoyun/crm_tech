@@ -9,13 +9,13 @@ from ..serializers import *
 class AboutApi(ModelViewSet):
     permission_classes = [IsAuthenticated]
     queryset = About.objects.all().order_by('-id')
-    serializer_class = AttendanceSerializer
+    serializer_class = AboutSerializer
 
 
 class AboutApiGet(APIView):
     def get(self, request):
         region = About.objects.all().order_by('-id')
-        serializer = AttendanceSerializer(region, many=True)
+        serializer = AboutSerializer(region, many=True)
         return Response(data=serializer.data)
 
 

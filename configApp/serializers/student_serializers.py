@@ -7,7 +7,7 @@ from ..models import *
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ['id', 'full_name', 'phone', 'organization', 'descriptions']
+        fields = ['id', 'full_name', 'phone', 'group', 'organization', 'descriptions']
 
 
 # GET UCHUN
