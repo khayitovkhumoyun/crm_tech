@@ -26,7 +26,7 @@ class CourseApiView(ModelViewSet):
 class GetCourseAPI(APIView):
     def get(self, request):
         course = Course.objects.all().order_by('-id')
-        serializer = CourseSerializer(course,many=True)
+        serializer = CourseSerializer(course, many=True)
         return Response(data=serializer.data)
 
 

@@ -25,12 +25,13 @@ class UserManager(BaseUserManager):
 
 
 # User model
-class User(AbstractBaseUser,PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=255, unique=True)
     full_name = models.CharField(max_length=50, null=True, blank=True)
     email = models.EmailField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    is_manager = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
