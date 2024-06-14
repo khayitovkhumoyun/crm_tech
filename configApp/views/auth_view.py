@@ -81,6 +81,10 @@ class ChangePasswordView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
+
 # class UserInfo(APIView):
 #     @swagger_auto_schema(request_body=UserInfoSerializer)
 #     def post(self, request):

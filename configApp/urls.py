@@ -32,6 +32,7 @@ urlpatterns = [
     # path('userInfo/', UserInfo.as_view()),
     path('refresh_password/', ChangePasswordView.as_view()),
     path('studentApi/', StudentViewApi.as_view()),
+    path('groupStudentApi/<int:pk>/', GroupStudentsApi.as_view()),
     path('courseGet/', GetCourseAPI.as_view()),
     path('regionGet/', GetRegionApi.as_view()),
     path('organizationGet/', GetOrganization.as_view()),
@@ -41,5 +42,6 @@ urlpatterns = [
     path('kadr/<int:pk>/', ManagerApiIdView.as_view()),
     path('user/<int:pk>/', RegisterUserIDApi.as_view()),
     path('studentApiId/<int:pk>/', StudentApiViewId.as_view()),
+
 
 ]
