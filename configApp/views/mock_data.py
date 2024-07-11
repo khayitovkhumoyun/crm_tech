@@ -57,4 +57,3 @@ class CourseCountApi(APIView):
     def get(self, request):
         course = Course.objects.all().Count().order_by('-id')
         return Response(data={"count": course})
-

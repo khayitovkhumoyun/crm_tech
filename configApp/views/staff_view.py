@@ -19,7 +19,8 @@ class RegionViewApi(ModelViewSet):
 class GetRegionApi(APIView):
     def get(self, request):
         region = Region.objects.all().order_by('-id')
-        serializer = RoomSerializer(region,many=True)
+        serializer = RoomSerializer(region, many=True)
+
         return Response(data=serializer.data)
 
 
@@ -34,7 +35,7 @@ class OrganizationViewApi(ModelViewSet):
 class GetOrganization(APIView):
     def get(self, request):
         org = Organization.objects.all().order_by('-id')
-        serializer = OrganizationSerializer(org,many=True)
+        serializer = OrganizationSerializer(org, many=True)
         return Response(data=serializer.data)
 
 
