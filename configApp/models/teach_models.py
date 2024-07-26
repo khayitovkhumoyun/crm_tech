@@ -1,5 +1,6 @@
 from django.db import models
 
+from . import Organization
 # from configApp.models import Organization, GroupTech
 
 
@@ -32,3 +33,4 @@ class Student(models.Model):
 
     def __str__(self):
         return self.full_name
+

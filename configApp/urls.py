@@ -23,6 +23,10 @@ router.register(r'organization', OrganizationViewApi)
 router.register(r'teacher', TeacherViewApi)
 router.register(r'about', AboutApi)
 router.register(r'serves', ServesApi)
+# news uchun fotos rasm
+router.register(r'fotos', FotosApi)
+# newslar uchun Api
+router.register(r'news', NewsApi)
 # o'qtuvchi tomonidan maczu qo'shish
 
 
@@ -38,10 +42,12 @@ urlpatterns = [
     path('organizationGet/', GetOrganization.as_view()),
     path('aboutGet/', AboutApiGet.as_view()),
     path('servesGet/', ServesApiGet.as_view()),
+    path('regionFilter/', RegionsAndOrg.as_view()),
+    path('orgFilter/<int:pk>/', OrgData.as_view()),
     path('kadr/', ManagerApiView.as_view()),
+    path('newsGet/', NewsGetApi.as_view()),
     path('kadr/<int:pk>/', ManagerApiIdView.as_view()),
     path('user/<int:pk>/', RegisterUserIDApi.as_view()),
     path('studentApiId/<int:pk>/', StudentApiViewId.as_view()),
-
 
 ]
