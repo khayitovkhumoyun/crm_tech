@@ -17,10 +17,10 @@ SECRET_KEY = 'django-insecure-y78mj3+%4kliu@%(u10did8hfg^52+tuy91j14-gw%rl&v=nbv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['*','crmbackend.uz']
-ALLOWED_HOSTS = ['*','134.209.238.241']
-# CSRF_TRUSTED_ORIGINS = ['https://crmbackend.uz/']
-CSRF_TRUSTED_ORIGINS = ['http://134.209.238.241']
+ALLOWED_HOSTS = ['*','crmbackend.uz']
+# ALLOWED_HOSTS = ['*','134.209.238.241']
+CSRF_TRUSTED_ORIGINS = ['https://crmbackend.uz/']
+# CSRF_TRUSTED_ORIGINS = ['http://134.209.238.241']
 
 CORS_ALLOW_ALL_ORIGINS: True
 CORS_ORIGIN_ALLOW_ALL = True
