@@ -24,7 +24,6 @@ class NewsApi(ModelViewSet):
 
 
 class NewsGetApi(APIView):
-    # @swagger_auto_schema(request_body=NewsGETSerializer)
     def get(self, request):
         news = News.objects.all().order_by("-id")
         serializer = NewsGETSerializer(news, many=True)

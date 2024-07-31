@@ -23,7 +23,7 @@ class RegisterUserApi(APIView):
 
     @swagger_auto_schema(request_body=UserSerializer)
     def post(self, request):
-        print(self.request.user)
+        # print(self.request.user)
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             password = serializer.validated_data.get('password')

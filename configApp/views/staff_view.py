@@ -46,6 +46,8 @@ class ManagerApiView(APIView):
             user = request.data['user']
             user_serializer = UserSerializer(data=user)
             if user_serializer.is_valid(raise_exception=True):
+                password = user_serializer.validated_data.get('password')
+                user_serializer.validated_data['password'] = make_password(password)
                 user_serializer.save()
             organization = request.data['organization']
             organization["user"] = User.objects.get(username=user['username']).id

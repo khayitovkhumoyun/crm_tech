@@ -15,7 +15,7 @@ class NewsSerializer(serializers.ModelSerializer):
 
 
 class NewsGETSerializer(serializers.ModelSerializer):
-    images = NewsSerializer()
+    images = FotoSerializer(many=True)
 
     class Meta:
         model = News

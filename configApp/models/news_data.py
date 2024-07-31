@@ -2,12 +2,13 @@ from django.db import models
 
 
 class NewsFotos(models.Model):
+    title = models.CharField(max_length=500)
     image = models.URLField()
 
 
 class News(models.Model):
     title = models.CharField(max_length=255)
-    images = models.ManyToManyField(NewsFotos, related_name="newsfotos")
+    images = models.ManyToManyField(NewsFotos, related_name="images")
     descriptions = models.CharField(max_length=500, blank=True, null=True)
 
     def __str__(self):
