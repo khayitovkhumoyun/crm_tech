@@ -11,7 +11,7 @@ class FotoSerializer(serializers.ModelSerializer):
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         model = News
-        fields = ['id', 'title', 'images', 'descriptions']
+        fields = ['id', 'title', 'date', 'count', 'images', 'descriptions']
 
 
 class NewsGETSerializer(serializers.ModelSerializer):
@@ -19,4 +19,8 @@ class NewsGETSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
-        fields = ['id', 'title', 'images', 'descriptions']
+        fields = ['id', 'title', 'date', 'count', 'images', 'descriptions']
+
+
+class NewCountSerializer(serializers.Serializer):
+    id = serializers.IntegerField()

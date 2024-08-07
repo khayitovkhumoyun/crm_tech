@@ -28,3 +28,17 @@ class NewsGetApi(APIView):
         news = News.objects.all().order_by("-id")
         serializer = NewsGETSerializer(news, many=True)
         return Response(data=serializer.data)
+
+
+class NewsCount(APIView):
+    @swagger_auto_schema(request_body=NewCountSerializer)
+    def post(self, request):
+        try:
+
+            new_id = request.data['id']
+            new = News.objects.get(id=new_id)
+            new.count += 1
+            new.save()
+            return Response(data={"new": "count +1"})
+        except Exception as e:
+            return Response(data={"error": e})

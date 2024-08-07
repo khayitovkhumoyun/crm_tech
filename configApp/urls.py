@@ -46,6 +46,7 @@ urlpatterns = [
     path('orgFilter/<int:pk>/', OrgData.as_view()),
     path('kadr/', ManagerApiView.as_view()),
     path('newsGet/', NewsGetApi.as_view()),
+    path('newsCount/', NewsCount.as_view()),
     path('kadr/<int:pk>/', ManagerApiIdView.as_view()),
     path('user/<int:pk>/', RegisterUserIDApi.as_view()),
     path('studentApiId/<int:pk>/', StudentApiViewId.as_view()),
